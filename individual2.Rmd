@@ -27,7 +27,7 @@ How are the ratings distributed? Create both a histogram and a boxplot and descr
 The ratings are mostly right justified but there a few outliers that ranked very low. There is also a strange hole in the histogram around the 3.1 to 3.2 range.
 
 ```{r}
-barplot(table(choco$Date), ylab='Rating', xlab='Year', main='Chocolate Ranking depending on Year')
+barplot(table(choco$Date), ylab='Number of Reports', xlab='Year', main='Chocolate Ranking depending on Year')
 ```
 
 How does the number of ratings depend on the year? Draw a bar chart of the number of reports.

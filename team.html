@@ -399,1164 +399,511 @@ str(choco) </code></pre>
 ##  $ Characteristics4    : Factor w/ 88 levels &quot;acidic&quot;,&quot;apple&quot;,..: NA NA NA NA NA 66 NA 29 NA NA ...
 ##  $ Rating              : num  3.75 3.5 3.25 3.75 3.5 4 4 3.75 3.5 3.25 ...</code></pre>
 <p>How do different characteristics of the chocolate compare? To elaborate, which characteristics tend to be more favorable and which ones are not? Create both numerical and graphical summaries, and explain.</p>
-<pre class="r"><code>choco$Characteristics2</code></pre>
-<pre><code>##    [1] blackberry                vegetal                  
-##    [3] fatty                     melon                    
-##    [5] nutty                     nut                      
-##    [7] cocoa                     nutty                    
-##    [9] sour                      &lt;NA&gt;                     
-##   [11] strong smoke              nutty                    
-##   [13] red fruit                 smokey                   
-##   [15] earthy                    alkalyzed notes          
-##   [17] hazelnut                  nutty                    
-##   [19] papaya                    mild choco               
-##   [21] leather                   chocolaty                
-##   [23] cocoa                     acidic                   
-##   [25] earthy                    chocolatey               
-##   [27] dairy                     powdery                  
-##   [29] &lt;NA&gt;                      nutty                    
-##   [31] rich                      molasses                 
-##   [33] floral                    powerful tang            
-##   [35] candy-like                sublte strawberry        
-##   [37] woody                     sweet                    
-##   [39] cocoa                     sweet                    
-##   [41] nutty                     sweet                    
-##   [43] spice                     musty                    
-##   [45] intense                   nut                      
-##   [47] dirt                      dirt                     
-##   [49] fatty                     sweet                    
-##   [51] roasty                    cream                    
-##   [53] green                     sweet                    
-##   [55] melon                     sweet                    
-##   [57] berry                     too sweet                
-##   [59] sweet                     sweet                    
-##   [61] moldy                     sweet                    
-##   [63] sweet                     nutty                    
-##   [65] sweet                     sweet                    
-##   [67] coarse                    strawberry               
-##   [69] nut                       nutty                    
-##   [71] nutty                     roasty                   
-##   [73] intense pepper            cinamon                  
-##   [75] red berry                 lemon                    
-##   [77] chalky                    oddly sweet              
-##   [79] spicy                     mushroom                 
-##   [81] blackcherry               pungent                  
-##   [83] vegetal                   vanilla                  
-##   [85] sour                      sour                     
-##   [87] high astringnet           savory                   
-##   [89] roasty                    brownie                  
-##   [91] rich cocoa                fruit                    
-##   [93] &lt;NA&gt;                      fruit                    
-##   [95] dairy                     earthy                   
-##   [97] woody                     raspberry                
-##   [99] delicate                  mint                     
-##  [101] nuts                      mild roasty              
-##  [103] fatty                     sweet                    
-##  [105] bright red                fatty                    
-##  [107] red berry                 sweet                    
-##  [109] mild fruit                caramel                  
-##  [111] fruity                    mild spice               
-##  [113] floral                    sour milk                
-##  [115] sticky                    cocoa                    
-##  [117] strawberry                rich                     
-##  [119] nutty                     brownie                  
-##  [121] floral                    butterscotch             
-##  [123] chemical off              cherry                   
-##  [125] complex                   woody                    
-##  [127] rich cocoa                chocolatey               
-##  [129] simple                    roasty                   
-##  [131] mysterious                green                    
-##  [133] floral                    mild floral              
-##  [135] hammy                     nutty                    
-##  [137] bright fruit              cocoa                    
-##  [139] basic cocoa               &lt;NA&gt;                     
-##  [141] mild roasty               fig                      
-##  [143] nutty                     dried fruit              
-##  [145] mushroom                  rubbery                  
-##  [147] vegetal                   rich cocoa               
-##  [149] late hammy                earthy                   
-##  [151] minty                     cocoa                    
-##  [153] cherry                    mild metallic            
-##  [155] very smokey               nutty                    
-##  [157] dominate off note         black licorice           
-##  [159] banana                    grassy                   
-##  [161] distinct spicey           very bitter              
-##  [163] butterscotch              chemical                 
-##  [165] roasty                    nutty                    
-##  [167] marshmallow               astringent               
-##  [169] black licorice            mild tart                
-##  [171] woody                     woody                    
-##  [173] rich                      vegetal                  
-##  [175] bright fruit              dried fruit              
-##  [177] roasty                    vanilla                  
-##  [179] flat                      intense                  
-##  [181] fragrant                  ham                      
-##  [183] smokey                    sugary                   
-##  [185] cardamom                  caramel                  
-##  [187] mild fruit                fatty                    
-##  [189] fatty                     mild sour                
-##  [191] toffee                    black pepper             
-##  [193] rounded                   smokey                   
-##  [195] cocoa                     tangy                    
-##  [197] floral                    candy flavor             
-##  [199] sweet                     floral                   
-##  [201] off notes                 woody                    
-##  [203] spice                     bitter                   
-##  [205] sweet                     floral                   
-##  [207] bitter                    cinamon                  
-##  [209] nutty                     smokey                   
-##  [211] moss                      delicate                 
-##  [213] mild dried fruit          complex                  
-##  [215] nutty                     complex                  
-##  [217] nibby                     tangy                    
-##  [219] roasty                    fatty                    
-##  [221] smokey                    raspberries              
-##  [223] red berry                 nutmeg                   
-##  [225] dairy                     intense                  
-##  [227] roasty                    vanilla                  
-##  [229] smokey                    spicy pepper             
-##  [231] macadamia                 light toffee             
-##  [233] nutty                     banana                   
-##  [235] nutty                     earthy                   
-##  [237] diluted                   molasses                 
-##  [239] metallic                  tart                     
-##  [241] earthy                    spicy                    
-##  [243] bland                     astringent               
-##  [245] rum                       red berry                
-##  [247] sour                      cocoa                    
-##  [249] &lt;NA&gt;                      red berry                
-##  [251] strong                    cocoa                    
-##  [253] cardamom                  strong wine              
-##  [255] mild bitter               off spicey               
-##  [257] rich                      sour milk                
-##  [259] molasses                  earthy                   
-##  [261] rubbery                   leather                  
-##  [263] fruity                    muted spice              
-##  [265] nutty                     flat                     
-##  [267] fruity                    tart red berry           
-##  [269] complex                   tart                     
-##  [271] melon                     sour                     
-##  [273] coffee                    &lt;NA&gt;                     
-##  [275] savory                    fruit                    
-##  [277] dirty                     fatty                    
-##  [279] coconut                   woodsy                   
-##  [281] creamy                    tart                     
-##  [283] dominant tobacco          bitter                   
-##  [285] floral                    strawberry               
-##  [287] intense cocoa             nut                      
-##  [289] roasty                    bread                    
-##  [291] black pepper              spicy                    
-##  [293] very grassy               raisin                   
-##  [295] woody                     cocoa                    
-##  [297] fatty                     creamy                   
-##  [299] roasted nuts              roasty                   
-##  [301] homey                     brownie                  
-##  [303] tobacco                   fatty                    
-##  [305] subtle                    rich                     
-##  [307] lavendar                  very bitter              
-##  [309] vanilla                   sweet                    
-##  [311] banana                    rich mocha               
-##  [313] floral                    brownie                  
-##  [315] cooked banana             alocohol                 
-##  [317] vanilla                   raisins                  
-##  [319] cocoa                     brownie                  
-##  [321] rich cocoa                slight hammy             
-##  [323] floral                    cherries                 
-##  [325] fruit                     tea                      
-##  [327] dark berry                raisins                  
-##  [329] sweet                     sweet                    
-##  [331] tart                      sandy                    
-##  [333] black pepper              banana                   
-##  [335] mild molasses             sweet                    
-##  [337] floral                    sweet                    
-##  [339] under refined             earthy                   
-##  [341] mild citrus               coffee                   
-##  [343] fruit                     high roast               
-##  [345] sour dairy                sour                     
-##  [347] &lt;NA&gt;                      sour notes               
-##  [349] &lt;NA&gt;                      unique                   
-##  [351] grassy                    floral                   
-##  [353] burnt wood                buttery                  
-##  [355] bitter                    almost burnt             
-##  [357] woody                     dairy                    
-##  [359] flat flavor               fruit medley             
-##  [361] sweet                     creamy                   
-##  [363] dirty                     dirty                    
-##  [365] nutty                     strawberry               
-##  [367] intense                   earthy                   
-##  [369] fruity                    black licorice           
-##  [371] nutty                     chalky                   
-##  [373] dirty                     sandy                    
-##  [375] marshmallow               woody                    
-##  [377] spice                     vegetal                  
-##  [379] nutty                     short                    
-##  [381] astringent                fatty                    
-##  [383] blueberry                 gritty                   
-##  [385] sweet                     cherry                   
-##  [387] &lt;NA&gt;                      nutty                    
-##  [389] mild spice                mild spice               
-##  [391] earthy                    fudge-like               
-##  [393] roasty                    &quot;Andes&quot; mint             
-##  [395] cherries                  dairy                    
-##  [397] sour                      off                      
-##  [399] rum                       complex                  
-##  [401] earthy                    very acidic              
-##  [403] molasses                  sweet                    
-##  [405] spicy                     fatty                    
-##  [407] hint of fruit             cocoa                    
-##  [409] metallic                  fatty                    
-##  [411] &lt;NA&gt;                      ashey                    
-##  [413] controlled bitter         berry                    
-##  [415] fatty                     ashey                    
-##  [417] chocolate                 &lt;NA&gt;                     
-##  [419] bold                      acidic                   
-##  [421] burnt                     sweet                    
-##  [423] sweet                     floral                   
-##  [425] cinamon                   chemical off note        
-##  [427] intense                   malt                     
-##  [429] melon                     woody                    
-##  [431] fruit                     spicy                    
-##  [433] astringent                earthy                   
-##  [435] mild spice                grassy                   
-##  [437] grain                     sweet edge               
-##  [439] marshmallow               vanilla                  
-##  [441] rich                      intense                  
-##  [443] mild intensity            nutty                    
-##  [445] molasses                  tobacco                  
-##  [447] spice                     cocoa                    
-##  [449] fruity                    molasses                 
-##  [451] sweet                     earthy                   
-##  [453] grassy                    black pepper             
-##  [455] floral                    molasses                 
-##  [457] roasty                    caramel                  
-##  [459] mellow                    woody                    
-##  [461] off notes                 roasty                   
-##  [463] leather                   mild mint                
-##  [465] roasty                    rich cocoa               
-##  [467] roasty                    woody                    
-##  [469] sandy                     very spicey              
-##  [471] leafy                     chocolatey               
-##  [473] floral                    subtle peanut butter     
-##  [475] earthy                    bland                    
-##  [477] mild choco &amp; leather      banana raspberry         
-##  [479] sour milk                 spicy                    
-##  [481] rubbery                   floral                   
-##  [483] metallic                  earthy off notes         
-##  [485] molasses                  fruity then nutty        
-##  [487] earthy                    bitter                   
-##  [489] coconut                   tart                     
-##  [491] sweet                     rich                     
-##  [493] nutty                     cocoa                    
-##  [495] roasty                    molasses                 
-##  [497] odd                       coffee                   
-##  [499] rich cocoa                coffee                   
-##  [501] bright fruit              sweet                    
-##  [503] fruity                    floral notes             
-##  [505] orange                    fruit                    
-##  [507] honey                     vanilla                  
-##  [509] fruit                     sweet                    
-##  [511] tart                      vegetal                  
-##  [513] sweet                     marshmallow              
-##  [515] floral                    cardboard                
-##  [517] cocoa base                fudge-like               
-##  [519] grassy                    cocoa                    
-##  [521] sweet                     sweet                    
-##  [523] mild bitter               muted                    
-##  [525] tart                      fatty                    
-##  [527] cigarette butt            ashey                    
-##  [529] sweet                     sweet                    
-##  [531] sandy                     spice                    
-##  [533] citrus                    dried fruit              
-##  [535] spicy                     floral                   
-##  [537] mild fruit                woody                    
-##  [539] hammy                     peanut butter            
-##  [541] bitter                    sandy                    
-##  [543] light lime                musty                    
-##  [545] mild cocoa                floral                   
-##  [547] anise                     dirty                    
-##  [549] spices                    nutty                    
-##  [551] coffee                    mildly bitter            
-##  [553] mildly bitter             &lt;NA&gt;                     
-##  [555] roasty                    nutty                    
-##  [557] woodsy                    tangy                    
-##  [559] sour                      winey                    
-##  [561] less intense berry        nutty                    
-##  [563] buttery                   cocoa                    
-##  [565] fatty                     coffee                   
-##  [567] bland                     spicy                    
-##  [569] melon floral              nutty                    
-##  [571] minty                     sweet                    
-##  [573] &lt;NA&gt;                      fragrant                 
-##  [575] rich cocoa                &lt;NA&gt;                     
-##  [577] sweet                     roasty                   
-##  [579] sweet                     sweet                    
-##  [581] sweet                     &lt;NA&gt;                     
-##  [583] molasses                  complex                  
-##  [585] mild bitter               spicy                    
-##  [587] earthy                    citrus                   
-##  [589] banana                    candy like vanilla       
-##  [591] sour                      banana                   
-##  [593] sour                      grapes                   
-##  [595] pungent                   vinegar                  
-##  [597] fudgey                    green                    
-##  [599] tannic                    oreo shell               
-##  [601] raspberry                 sour                     
-##  [603] sour                      rich choco               
-##  [605] blackberry                nutty                    
-##  [607] spicy                     roasty                   
-##  [609] rich choco                sour                     
-##  [611] citrus                    moderate acidity         
-##  [613] high astringency          sticky                   
-##  [615] fruity                    red berry                
-##  [617] &lt;NA&gt;                      holiday spice            
-##  [619] plum                      dried fruit              
-##  [621] floral                    &lt;NA&gt;                     
-##  [623] toffee                    ashey                    
-##  [625] fatty                     sunflower                
-##  [627] licorice                  astringent               
-##  [629] tobacco                   creamy                   
-##  [631] creamy                    nutty                    
-##  [633] floral                    strong sour              
-##  [635] sweet                     fatty                    
-##  [637] odd rubber notes          vanilla                  
-##  [639] powdery                   fatty                    
-##  [641] brownie                   brownie                  
-##  [643] fruit                     intense                  
-##  [645] cocoa                     nutmeg                   
-##  [647] simple                    tobacco                  
-##  [649] basic cocoa               cloying                  
-##  [651] rich cocoa                chalky                   
-##  [653] fatty                     floral                   
-##  [655] dirt/ earthy              chemical                 
-##  [657] roasty                    lingering coffee         
-##  [659] woodsy                    bitter ending            
-##  [661] tea                       tart                     
-##  [663] flat                      very roasty              
-##  [665] mint                      floral                   
-##  [667] black pepper              spice                    
-##  [669] rich                      intense                  
-##  [671] creamy                    raisns                   
-##  [673] roasty nibs               tea                      
-##  [675] sticky                    dried fruit              
-##  [677] earthy                    sweet                    
-##  [679] fatty                     raw                      
-##  [681] harsh                     caramel                  
-##  [683] earthy                    rasin                    
-##  [685] spicy                     nutty                    
-##  [687] astringent                floral                   
-##  [689] basic cocoa               olive                    
-##  [691] fruit                     complex                  
-##  [693] nuts                      mint                     
-##  [695] smokey                    basic cocoa              
-##  [697] banana                    smoke                    
-##  [699] licorice                  olive                    
-##  [701] grassy                    hot spices               
-##  [703] woody                     caramel                  
-##  [705] intense                   coffee                   
-##  [707] nutty                     fruit                    
-##  [709] well developed            strawberry               
-##  [711] sticky                    molasses                 
-##  [713] molasses                  molasses                 
-##  [715] molasses                  cocoa                    
-##  [717] fruit                     &lt;NA&gt;                     
-##  [719] cocoa                     sour                     
-##  [721] earthy                    fruity                   
-##  [723] spice                     cocoa                    
-##  [725] bread                     grapes                   
-##  [727] woody                     &lt;NA&gt;                     
-##  [729] almond                    leathery                 
-##  [731] nutty                     rich                     
-##  [733] full bodied               spicy                    
-##  [735] &lt;NA&gt;                      cocoa                    
-##  [737] honey                     earthy                   
-##  [739] muted                     cinnamon                 
-##  [741] orange                    roasty                   
-##  [743] acidic                    earthy                   
-##  [745] dense                     cocoa                    
-##  [747] &lt;NA&gt;                      spicy                    
-##  [749] strong floral             dried fruit              
-##  [751] burlap                    almond butter            
-##  [753] gritty                    tart                     
-##  [755] rich                      chalky                   
-##  [757] cherry                    banana                   
-##  [759] sweet                     bold                     
-##  [761] marshmallow               caramel                  
-##  [763] fig notes                 tannic                   
-##  [765] too sweet                 nutty                    
-##  [767] woody                     mild cocoa               
-##  [769] sweet                     roasty                   
-##  [771] floral                    heavy roast              
-##  [773] brownie                   rainins                  
-##  [775] dirty                     earthy                   
-##  [777] crumbly                   green                    
-##  [779] smoke                     smoke                    
-##  [781] cocoa                     fruit                    
-##  [783] vanilla                   slight plum              
-##  [785] ginger                    vanilla                  
-##  [787] overyly sweet             very sweet               
-##  [789] strawberry                sweet                    
-##  [791] mild bitter               roasty                   
-##  [793] earthy                    &lt;NA&gt;                     
-##  [795] &lt;NA&gt;                      floral                   
-##  [797] spicy                     off notes                
-##  [799] sandy                     raspberry                
-##  [801] rich                      short length             
-##  [803] floral                    roasty                   
-##  [805] cocoa                     marshmallow              
-##  [807] sweet                     licorice                 
-##  [809] molasses                  molasses                 
-##  [811] cocoa                     bland                    
-##  [813] hammy                     melon                    
-##  [815] cocoa                     acidic                   
-##  [817] cocoa                     honey                    
-##  [819] simple                    bitter                   
-##  [821] dried fruit               large grits              
-##  [823] mild sweet cocoa          spicy mild molasses      
-##  [825] sour notes                true to sugar bar        
-##  [827] earthy                    dried fruit              
-##  [829] sandy                     floral                   
-##  [831] bland                     hazelnut                 
-##  [833] dried fruit               sour milk                
-##  [835] powdery                   acidic                   
-##  [837] citrus                    dried sour fruit         
-##  [839] orange                    mild anise               
-##  [841] bland                     tropical                 
-##  [843] mild floral               smokey                   
-##  [845] roasty                    dried fruit              
-##  [847] hazelnut                  dairy                    
-##  [849] tobacco                   &lt;NA&gt;                     
-##  [851] large grits               &lt;NA&gt;                     
-##  [853] gritty                    sweet                    
-##  [855] hazelnut                  &lt;NA&gt;                     
-##  [857] spicy                     intense                  
-##  [859] bitter                    perfume                  
-##  [861] &lt;NA&gt;                      rum                      
-##  [863] cough medicine            some fruit               
-##  [865] citrus                    tobacco                  
-##  [867] roasty                    grapes                   
-##  [869] citrus                    spicy                    
-##  [871] mild licorice             roasty                   
-##  [873] simple                    earthy                   
-##  [875] roasted cocoa             some roasty notes        
-##  [877] grassy                    brownie                  
-##  [879] cocoa                     nutty                    
-##  [881] cocoa                     mild cocoa               
-##  [883] red fruit                 nuts                     
-##  [885] red berry                 fruit                    
-##  [887] fruit                     smoke                    
-##  [889] &lt;NA&gt;                      caramel                  
-##  [891] fresh grapes              &lt;NA&gt;                     
-##  [893] mellow but flavorful      floral                   
-##  [895] caramel                   leathery flavor          
-##  [897] fruit                     mild                     
-##  [899] nuts                      nuts                     
-##  [901] mild fatty                simple                   
-##  [903] fragrant                  yogurt                   
-##  [905] fatty                     ham                      
-##  [907] herbs                     black pepper             
-##  [909] deep cocoa                dairy                    
-##  [911] orange citrus             savory                   
-##  [913] high astringency          floral-spice mix         
-##  [915] balanced                  grassy                   
-##  [917] grassy                    metallic                 
-##  [919] sticky                    woody                    
-##  [921] fatty                     leathery                 
-##  [923] gritty                    citrus                   
-##  [925] earthy                    fatty                    
-##  [927] &lt;NA&gt;                      burnt black pepper       
-##  [929] nutty                     spicy                    
-##  [931] sweet                     spicy                    
-##  [933] sweet                     tart                     
-##  [935] intense                   sweet                    
-##  [937] hebs                      undefined                
-##  [939] dried fruit               tropical                 
-##  [941] fruit                     bitter                   
-##  [943] cocoa                     sour                     
-##  [945] sweet                     &lt;NA&gt;                     
-##  [947] ambiguous                 coconut                  
-##  [949] spice                     fruit                    
-##  [951] tart                      sweet                    
-##  [953] woody                     creamy                   
-##  [955] grainy                    roasty                   
-##  [957] black licorice            cocoa                    
-##  [959] earthy                    rubbery                  
-##  [961] mildly burnt              bright fruit             
-##  [963] rich                      nutty                    
-##  [965] fig                       tart                     
-##  [967] vanilla                   basic                    
-##  [969] coffee                    pungent                  
-##  [971] grassy                    coffee                   
-##  [973] muted                     spicy                    
-##  [975] nutty                     very nutty               
-##  [977] mild                      roasty                   
-##  [979] chemical or burnt note    sweet                    
-##  [981] blackberry                rich cocoa               
-##  [983] sweet                     cocoa                    
-##  [985] creamy                    sandy                    
-##  [987] nutty                     vanilla                  
-##  [989] vanilla                   fruit                    
-##  [991] mild lemon                fatty                    
-##  [993] mild tobacco              creamy                   
-##  [995] sticky                    intense                  
-##  [997] roasty                    vanilla                  
-##  [999] sl. Burnt                 over roasted             
-## [1001] black licorice            intense                  
-## [1003] berry                     mild fruit               
-## [1005] nutty                     roasted vegetal          
-## [1007] cherries                  sour                     
-## [1009] sweet                     bitter                   
-## [1011] floral                    fatty                    
-## [1013] banana                    chocolate milk           
-## [1015] sweet edge                sandy texture            
-## [1017] sweet                     rich                     
-## [1019] late tart notes           brownie                  
-## [1021] sweet                     dirty                    
-## [1023] fatty                     chemical                 
-## [1025] vanilla                   sweet                    
-## [1027] fatty                     fatty                    
-## [1029] metallic                  mild dried fruit         
-## [1031] butterscotch              intense                  
-## [1033] &lt;NA&gt;                      earthy                   
-## [1035] smoke                     &lt;NA&gt;                     
-## [1037] black licorice            honey                    
-## [1039] mild nutty &amp; woody        sweet                    
-## [1041] spicy                     palm                     
-## [1043] spicy                     tart                     
-## [1045] palm                      palm                     
-## [1047] tannic                    late sour &amp; molasses     
-## [1049] citrus                    hay                      
-## [1051] sour                      honey                    
-## [1053] bitter                    earthy                   
-## [1055] off notes                 burnt cinnamon           
-## [1057] sweet                     nutty                    
-## [1059] intense floral            floral                   
-## [1061] perfume                   burning                  
-## [1063] cocoa                     red berry                
-## [1065] red berry                 sour                     
-## [1067] roasty                    fatty                    
-## [1069] nutty                     fatty                    
-## [1071] raw                       green                    
-## [1073] &lt;NA&gt;                      bitter                   
-## [1075] cocoa                     woody                    
-## [1077] woody                     mild bitter              
-## [1079] tobacco                   mushroom                 
-## [1081] sweet                     espresso                 
-## [1083] woody                     sour                     
-## [1085] woody                     cocoa                    
-## [1087] floral                    nutty                    
-## [1089] red berry                 fruity                   
-## [1091] spicy                     vegetal                  
-## [1093] leathery                  mild coffee              
-## [1095] cocoa                     coffee                   
-## [1097] uncontrolled bitterness   coffee                   
-## [1099] gritty                    rich choco               
-## [1101] mild fruit                cherry                   
-## [1103] floral                    metallic edge            
-## [1105] mild roasty               nutty                    
-## [1107] nutty                     coffee                   
-## [1109] nutty                     cocoa                    
-## [1111] roasted nuts              nutty                    
-## [1113] nutty                     sour                     
-## [1115] rich                      sweet                    
-## [1117] black licorice            strawberry               
-## [1119] intense                   roasty                   
-## [1121] caramel                   sweet                    
-## [1123] tart                      spice                    
-## [1125] nutty                     pungent                  
-## [1127] meaty                     cherry                   
-## [1129] molasses                  unrefined                
-## [1131] sweet                     floral                   
-## [1133] nutty                     fruity                   
-## [1135] bourbon                   gateway                  
-## [1137] sweet                     tobacco                  
-## [1139] bold                      spice                    
-## [1141] coffee                    vanilla                  
-## [1143] burnt nuts                &lt;NA&gt;                     
-## [1145] cocoa                     tea-like                 
-## [1147] earthy                    prunes                   
-## [1149] basic cocoa               peanut butter            
-## [1151] sour milk                 floral                   
-## [1153] distinct                  balanced                 
-## [1155] sweet                     black tea                
-## [1157] fruit                     tobacco                  
-## [1159] grapes                    strong distinct spice    
-## [1161] vanilla                   mint                     
-## [1163] mild marshmallow          mild bitter              
-## [1165] floral                    vanilla                  
-## [1167] nutty                     vanilla                  
-## [1169] earthy                    chemical off             
-## [1171] floral                    dark berry               
-## [1173] vanilla domintates        cocoa                    
-## [1175] overly sweet              nutty                    
-## [1177] sour                      molasses                 
-## [1179] high acidity              dried fruit              
-## [1181] nutty                     smomkey cocoa            
-## [1183]                           intense                  
-## [1185] spicy                     molasses                 
-## [1187] fatty                     sour milk                
-## [1189] pungent                   pungent                  
-## [1191] mild flavors              &lt;NA&gt;                     
-## [1193] vanilla                   unbalanced               
-## [1195] candy-like                mild fruit               
-## [1197] earth                     bourbon                  
-## [1199] rich                      spice                    
-## [1201] rich hot cocoa            cocoa                    
-## [1203] nutty                     roasty                   
-## [1205] woody                     rich cocoa dominates     
-## [1207] soapy                     sweet                    
-## [1209] fatty                     earthy                   
-## [1211] cardboard                 cardboard                
-## [1213] high acidity              molasses                 
-## [1215] spicy                     molasses                 
-## [1217] cocoa                     melon                    
-## [1219] grapes                    dark berry               
-## [1221] caramel                   grassy                   
-## [1223] burning sensation         sweet                    
-## [1225] vegetal                   pear                     
-## [1227] rich                      nutty                    
-## [1229] cocoa                     burnt rubber             
-## [1231] fudgey                    mild fruit &amp; nut         
-## [1233] prononced orange          roasty                   
-## [1235] roasty                    woody                    
-## [1237] mild honey                roasty                   
-## [1239] fatty                     rich cocoa               
-## [1241] astringent                nutty                    
-## [1243] sour                      roasty                   
-## [1245] caramel                   roasty                   
-## [1247] fatty                     cocoa                    
-## [1249] nutty                     grassy                   
-## [1251] dairy                     rich cocoa               
-## [1253] earthy                    melon                    
-## [1255] light color               mild ham                 
-## [1257] off                       sticky                   
-## [1259] spice                     spicy                    
-## [1261] nutty                     brownie                  
-## [1263] black pepper              black licorice           
-## [1265] licorice                  mocha                    
-## [1267] mild berry                &lt;NA&gt;                     
-## [1269] mocha                     sweet                    
-## [1271] citrus                    bright fruit             
-## [1273] spicy edge                strawberry               
-## [1275] nutty                     grassy                   
-## [1277] roasty                    roasted                  
-## [1279] mild cocoa                vanilla                  
-## [1281] floral                    mild coffee              
-## [1283] brandy                    candied                  
-## [1285] pudding                   candy-like               
-## [1287] metallic                  &lt;NA&gt;                     
-## [1289] mild dairy                earthy                   
-## [1291] &lt;NA&gt;                      burnt                    
-## [1293] basic cocoa               rich brownie             
-## [1295] marshmallow               cocoa                    
-## [1297] caramel                   vanilla                  
-## [1299] strong chemical           cocoa base               
-## [1301] roasty                    nutty                    
-## [1303] woody                     red berry                
-## [1305] bitter                    chewy                    
-## [1307] strong vanilla            sweet                    
-## [1309] brownie                   vanilla                  
-## [1311] burnt nuts                nut                      
-## [1313] swiss miss                vanilla                  
-## [1315] earthy                    mild cocoa               
-## [1317] hay                       cooling sensation        
-## [1319] nutty                     astringent               
-## [1321] some spice                sublte grape notes       
-## [1323] tea-like                  sweet                    
-## [1325] smokey                    vanilla                  
-## [1327] crunchy                   unrecognizable           
-## [1329] nutty                     green                    
-## [1331] off medicinal             wet                      
-## [1333] nutty                     intense                  
-## [1335] sweet                     menthol                  
-## [1337] tangy                     cocoa                    
-## [1339] balanced                  fruit                    
-## [1341] fatty                     spicy                    
-## [1343] coconut                   brownie like             
-## [1345] roaste brownie            intense                  
-## [1347] intense                   balanced                 
-## [1349] roasty                    tangy                    
-## [1351] caramel                   floral                   
-## [1353] bright fruit              spicy                    
-## [1355] woody                     fatty                    
-## [1357] few grits                 coffee                   
-## [1359] sour                      tobacco                  
-## [1361] creamy                    spicy                    
-## [1363] rubbery                   tangy                    
-## [1365] grapes                    dirty                    
-## [1367] coffee                    woody                    
-## [1369] &lt;NA&gt;                      coffee                   
-## [1371] spice                     pepper                   
-## [1373] roasty                    fatty                    
-## [1375] heavy roast               fragrant                 
-## [1377] rich                      mild honey               
-## [1379] roasty                    dark berry               
-## [1381] earth                     floral                   
-## [1383] earthy                    rubber                   
-## [1385] rubber                    mild floral              
-## [1387] earthy                    pungent                  
-## [1389] earthy                    sticky                   
-## [1391] woody                     raspberry                
-## [1393] coffee                    tangy                    
-## [1395] gritty                    strawberry               
-## [1397] sandy                     lemon                    
-## [1399] high astringent           sticky                   
-## [1401] fruit                     sour                     
-## [1403] overly tart               deep choco               
-## [1405] vegetal                   citrus                   
-## [1407] red fruit                 grassy                   
-## [1409] fruity                    butterscotch             
-## [1411] cherry                    smoke                    
-## [1413] coffee                    burnt                    
-## [1415] sour fruit                cheese                   
-## [1417] hammy                     sweet                    
-## [1419] strawberry                woody                    
-## [1421] nutty                     metallic                 
-## [1423] sligthly bland            sweet                    
-## [1425] off                       coconut                  
-## [1427] coconut                   floral                   
-## [1429] earthy                    tart                     
-## [1431] smokey                    grassy                   
-## [1433] rich cocoa                ham                      
-## [1435] pomegrant                 caramel                  
-## [1437] bitter                    floral                   
-## [1439] fatty                     creamy                   
-## [1441] mild hammy                high acidity             
-## [1443] simple cocoa note         mild smoke               
-## [1445] raisins                   spices                   
-## [1447] mild smoke                licorice                 
-## [1449] crisp nibs                &lt;NA&gt;                     
-## [1451] bold                      orange                   
-## [1453] smoke                     melon                    
-## [1455] earthy                    cocoa                    
-## [1457] grits                     salt                     
-## [1459] cardboard                 salt                     
-## [1461] cream                     palm                     
-## [1463] rich                      grassy                   
-## [1465] lemon                     dairy                    
-## [1467] herbal                    melon                    
-## [1469] cocoa                     sweet                    
-## [1471] true to origin            simple                   
-## [1473] brownie batter            burnt nuts               
-## [1475] nutmeg                    sandy                    
-## [1477] sandy                     thick                    
-## [1479] mild pear                 late sour                
-## [1481] sour                      coffee notes from roaster
-## [1483] harsh                     sweet                    
-## [1485] licoric                   roasty                   
-## [1487] roasty                    intense smoke            
-## [1489] fruit                     cocoa                    
-## [1491] smokey                    blackberry               
-## [1493] intense                   artificial               
-## [1495] sweet                     &lt;NA&gt;                     
-## [1497] blueberry                 &lt;NA&gt;                     
-## [1499] rubbery                   fig                      
-## [1501] earthy                    honey                    
-## [1503] nutty                     tart                     
-## [1505] smokey                    hay                      
-## [1507] bright berry              floral                   
-## [1509] spicy                     ham                      
-## [1511] powdery                   sweet                    
-## [1513] fragrant                  smoke                    
-## [1515] spicy                     spicy                    
-## [1517] rich                      Roasty                   
-## [1519] tart                      sweet                    
-## [1521] earthy                    molasses                 
-## [1523] spicy                     earthy                   
-## [1525] oranges                   floral                   
-## [1527] floral                    intense                  
-## [1529] sweet                     sweet                    
-## [1531] savory                    rubbery                  
-## [1533] spicy                     toffee                   
-## [1535] dirt                      pungent                  
-## [1537] medicinal                 sandy                    
-## [1539] complex                   earthy                   
-## [1541] poor aftertaste           strong off flavor        
-## [1543] intense banana            vanilla                  
-## [1545] bright fruit              malt                     
-## [1547] rum                       nut                      
-## [1549] &lt;NA&gt;                      spicy                    
-## [1551] red fruit                 cocoa                    
-## [1553] grape                     melon notes              
-## [1555] sour ending               vanilla                  
-## [1557] rubber                    rubbery                  
-## [1559] mild orange               high roast               
-## [1561] mild metallic             candy like               
-## [1563] spicy                     strawberries             
-## [1565] coffee                    honey                    
-## [1567] cherry                    mild smoke               
-## [1569] sour                      slightly burnt           
-## [1571] roasted nuts              cocoa                    
-## [1573] nut                       banana                   
-## [1575] vanilla                   roasty                   
-## [1577] sweet cocoa               raspberry                
-## [1579] earthy                    intense                  
-## [1581] bitter                    sour fruit               
-## [1583] sour fruit                roasty                   
-## [1585] intense                   sandy                    
-## [1587] sour                      one dimensional          
-## [1589] cherry                    cheese                   
-## [1591] cheese                    cheesy                   
-## [1593] simple cocoa              berry                    
-## [1595] cocoa                     medicinal                
-## [1597] medicinal                 strong vanilla           
-## [1599] mild molasses             &lt;NA&gt;                     
-## [1601] dried fruit               coarse                   
-## [1603] cinamon                   sweet                    
-## [1605] ashey                     roasty                   
-## [1607] roasty                    bland                    
-## [1609] bread notes               honey                    
-## [1611] sour banana               melon                    
-## [1613] mild bitter               dates                    
-## [1615] pastey                    tobacco                  
-## [1617] banana                    molasses                 
-## [1619] green                     rubber                   
-## [1621] sweet                     rubber                   
-## [1623] earthy                    sandy                    
-## [1625] complex                   mostly bitter            
-## [1627] spicy                     green fruit              
-## [1629] smokey                    green                    
-## [1631] balanced                  tobacco                  
-## [1633] sweet                     tart                     
-## [1635] intense                   fruity                   
-## [1637] slight woody              sour                     
-## [1639] nutty                     melon                    
-## [1641] dried fruit               sweet                    
-## [1643] spicy                     savory                   
-## [1645] off rubber                bold                     
-## [1647] pungent                   burnt rubber             
-## [1649] floral                    bitter                   
-## [1651] fruit                     sour                     
-## [1653] sour                      earthy                   
-## [1655] coffee                    tobacco                  
-## [1657] basic cocoa               grapes                   
-## [1659] woody                     blackberry               
-## [1661] earthy                    roasty                   
-## [1663] woody                     buttery                  
-## [1665] earthy                    sweet                    
-## [1667] wine                      rich                     
-## [1669] fruit forward             nutty                    
-## [1671] red berry                 cocoa                    
-## [1673] sweet                     mild citrus              
-## [1675] earthy                    black licorice           
-## [1677] anise                     long                     
-## [1679] marshmallow               smokey                   
-## [1681] tart citrus               floral                   
-## [1683] cocoa                     bitter aftertaste        
-## [1685] floral                    subtle dairy             
-## [1687] rich                      &lt;NA&gt;                     
-## [1689] nutty                     coffee                   
-## [1691] woody                     roasty                   
-## [1693] off flavor                cream                    
-## [1695] fruity                    pistachio                
-## [1697] earthy ending             floral                   
-## [1699] dried fruit               woody                    
-## [1701] medicinal                 dairy                    
-## [1703] sandy                     earthy                   
-## [1705] molasses                  earthy                   
-## [1707] red berry                 banana                   
-## [1709] smoke                     chewy                    
-## [1711] candied                   mild smoke               
-## [1713] earthy                    cocoa                    
-## [1715] rich                      distinquished            
-## [1717] spicy                     fruit                    
-## [1719] fruit                     mild fruit               
-## [1721] tobacco                   roasty                   
-## [1723] fatty                     spicy                    
-## [1725] herbal                    mild fruit               
-## [1727] sour                      burnt                    
-## [1729] red berry                 subtle fruit             
-## [1731] floral                    fatty                    
-## [1733] cocoa                     floral                   
-## [1735] deep cocoa                fatty                    
-## [1737] fat                       smoke                    
-## [1739] woody                     black licorice           
-## [1741] roasty                    coffee                   
-## [1743] rich cocoa                coffee                   
-## [1745] tart                      mellow                   
-## [1747] roasted caramel           fuel                     
-## [1749] slightly burnt            mild floral              
-## [1751] butterscotch              earthy                   
-## [1753] grain                     mild                     
-## [1755] &lt;NA&gt;                      vanilla                  
-## [1757] soy                       fig                      
-## [1759] sunflower                 strong floral            
-## [1761] &lt;NA&gt;                      banana                   
-## [1763] intense banana            banana                   
-## [1765] intense                   fruity                   
-## [1767] too sweet                 grapes                   
-## [1769] nutty                     harsh woody              
-## [1771] gritty                    waxy                     
-## [1773] pasty                     sticky                   
-## [1775] honey                     green                    
-## [1777] &lt;NA&gt;                      &lt;NA&gt;                     
-## [1779] burnt                     super spicey             
-## [1781] raisins                   melon                    
-## [1783] intense vinegar           cocoa                    
-## [1785] complex                   &lt;NA&gt;                     
-## [1787] malt                      roasted cacao            
-## [1789] earthy                    green                    
-## [1791] dark roast                caramel                  
-## [1793] hazelnut                  off chemical             
-## [1795] earthy green              woody                    
-## [1797] tropical                  heavy roast              
-## [1799] nut                       slow                     
-## [1801] roasty                    woody                    
-## [1803] woody                     bourbon                  
-## [1805] coffee                    honey                    
-## [1807] dried fruit               heavy roast              
-## [1809] rubbery                   rubbery                  
-## [1811] intense                   honey                    
-## [1813] coffee                    nutty                    
-## [1815] large nibs                mild nutty               
-## [1817] sour                      honey                    
-## [1819] earthy                    heavy roast              
-## [1821] sweet spices              intense                  
-## [1823] roasty                    bourbon                  
-## [1825] banana                    dark berry               
-## [1827] heavy roast               earthy                   
-## [1829] intense                   rich                     
-## [1831] dried fruit               tart                     
-## [1833] roasty                    cashew                   
-## [1835] nutty                     burnt                    
-## [1837] chemical                  sour tang                
-## [1839] burnt                     chocolate                
-## [1841] vegetal                   coarse                   
-## [1843] spice                     subtle fruit then cocoa  
-## [1845] cocoa                     sweet                    
-## [1847] astringent                intense                  
-## [1849] maple                     strong bitter            
-## [1851] vanilla                   spicy                    
-## [1853] basic cocoa               spicey                   
-## [1855] basic                     cherry                   
-## [1857] cherry                    candy-like               
-## [1859] marshmallow               rich cocoa               
-## [1861] vanilla                   mild bitter              
-## [1863] sweet                     bitter                   
-## [1865] smokey                    chocolate base off       
-## [1867] strawberry                &lt;NA&gt;                     
-## [1869] base cocoa                complex                  
-## [1871] black pepper              delicate cocoa           
-## [1873] tart                      grassy                   
-## [1875] subtle                    grassy                   
-## [1877] wine                      pear                     
-## [1879] vegetal                   sweet                    
-## [1881] cherry                    mild fruit               
-## [1883] earthy                    roasty                   
-## [1885] raw                       &lt;NA&gt;                     
-## [1887] rich cocoa                astringent               
-## [1889] blueberry                 nutty                    
-## [1891] smoke                     tangy                    
-## [1893] dried fruit               tangy                    
-## [1895] floral                    earthy                   
-## [1897] perfume                   roasty                   
-## [1899] bold                      fatty                    
-## [1901] sweet                     salty                    
-## [1903] sweet                     cocoa                    
-## [1905] salty                     sweet edge               
-## [1907] mild sour                 rich                     
-## [1909] maple                     medium roasted cocoa     
-## [1911] tart                      bourbon                  
-## [1913] earthy                    spicy                    
-## [1915] raisins                   gateway                  
-## [1917] anise                     nutty                    
-## [1919] vanilla                   pistachio                
-## [1921] rich cooa                 tobacco                  
-## [1923] fruit notes               bold                     
-## [1925] tart                      sweet                    
-## [1927] grits                     intense                  
-## [1929] creamy                    fruit                    
-## [1931] mild cherry               smooth                   
-## [1933] fatty                     molasses                 
-## [1935] rich choco                earthy                   
-## [1937] vanilla                   fruity                   
-## [1939] strong chemical           fruit                    
-## [1941] hammy                     sour                     
-## [1943] simple                    hammy                    
-## [1945] sandy                     dirty                    
-## [1947] roasty                    roasted                  
-## [1949] nutty                     leathery                 
-## [1951] grape                     molasses                 
-## [1953] cheese                    licorice                 
-## [1955] strong molasses           tangy                    
-## [1957] complex                   &lt;NA&gt;                     
-## [1959] woody                     mushroom                 
-## [1961] few grits                 nutty                    
-## [1963] nut                       spice                    
-## [1965] cocoa                     tart                     
-## [1967] mild tannic               green mint               
-## [1969] astringent                raisin                   
-## [1971] complex                   cocoa                    
-## [1973] rich burnt caramel        earthy                   
-## [1975] tobacco                   fruit                    
-## [1977] grassy                    mild smoke               
-## [1979] nutty                     burnt brownie            
-## [1981] berry                     burnt caramel            
-## [1983] brownie mix               chocolate ice cream      
-## [1985] smokey                    dairy                    
-## [1987] nutty                     medicinal                
-## [1989] sour orange               smokey                   
-## [1991] accessible                nutty                    
-## [1993] woodsy                    mild sour                
-## [1995] nuts                      dried fruit              
-## [1997] honey                     &lt;NA&gt;                     
-## [1999] nutty                     sweet                    
-## [2001] &lt;NA&gt;                      diluted                  
-## [2003] banana                    honey                    
-## [2005] roasty                    acidic                   
-## [2007] cocoa                     lemon                    
-## [2009] tannic                    dried fruit              
-## [2011] sour                      earthy                   
-## [2013] mild fruit                sweet                    
-## [2015] floral                    smokey                   
-## [2017] floral                    floral                   
-## [2019] muted strawberry          sour milk                
-## [2021] sandy                     cherry                   
-## [2023] chocolatey                robust                   
-## [2025] astringent                earthy                   
-## [2027] mild fruit                sweet                    
-## [2029] intense coffee            mild vanilla             
-## [2031] cocoa                     coconut                  
-## [2033] few grits                 coconut                  
-## [2035] vanilla                   vanilla                  
-## [2037] hints of fruit            floral                   
-## [2039] rubber                    earthy                   
-## [2041] sweet                     sweet                    
-## [2043] rich                      sour                     
-## [2045] vanilla                   sweet                    
-## [2047] sweet                     nutty                    
-## [2049] sour                      burnt                    
-## [2051] cocoa                     cheesy                   
-## [2053] cheesy                    sour                     
-## [2055] molasses                  intense                  
-## [2057] ham                       earthy                   
-## [2059] sugar dominates           spicy                    
-## [2061] large unground pieces     bright fruit             
-## [2063] sandy                     sandy                    
-## [2065] hot cocoa                 banana                   
-## [2067] earthy                    spicy cinnamon           
-## [2069] earthy                    brownie                  
-## [2071] spicy                     fatty                    
-## [2073] mild citrus               fatty                    
-## [2075] dried fruit               cardboard                
-## [2077] fuel                      smoke                    
-## [2079] butter                    smoke                    
-## [2081] grassy                    fatty                    
-## [2083] sweet                     floral                   
-## [2085] &lt;NA&gt;                      dirt                     
-## [2087] fatty                     fruit                    
-## [2089] off                       sour banana              
-## [2091] sweet                     blueberries              
-## [2093] watering                  red berry                
-## [2095] sweet                     off                      
-## [2097] musty                     candy-like               
-## [2099] sweet                     ginger                   
-## [2101] sweet                     caramel                  
-## [2103] pepper                    rum                      
-## [2105] fruit                     caramel                  
-## [2107] sweet                     caramel                  
-## [2109] caramel                   caramel                  
-## [2111] savory                    off notes                
-## [2113] peanut butter             cardboard                
-## [2115] chemical                  rich                     
-## [2117] almond                    mild coffee              
-## [2119] raspberry                 mild sour                
-## [2121] cocoa                     black pepper             
-## [2123] earthy                    black pepper             
-## [2125] roasted banana            licorice                 
-## [2127] tobacco                   sweet                    
-## [2129] sweet                     slightly tart            
-## [2131] sweet                     gritty                   
-## [2133] very bland                vanilla                  
-## [2135] sour milk                 bold                     
-## [2137] marshmallow               vegetal                  
-## [2139] cashew                    mild honey               
-## [2141] mild fruit                wild berries             
-## [2143] sour                      soapy                    
-## [2145] sweet                     caramel                  
-## [2147] cocoa                     astringent               
-## [2149] chewy                     floral                   
-## [2151] roasty                    pungent grape            
-## [2153] complex                   spicey                   
-## [2155] sweet                     sweet                    
-## [2157] mild fruit                woody                    
-## [2159] sligt burnt               bitter                   
-## [2161] red berry                 floral                   
-## [2163] sour                      floral                   
-## [2165] sweet                     rich                     
-## [2167] coarse                    coarse                   
-## [2169] coarse                    tangy                    
-## [2171] woody                     sweet                    
-## [2173] acidic                    nutty                    
-## [2175] melon                     &lt;NA&gt;                     
-## [2177] bold                      smooth                   
-## [2179] rich cocoa                woody                    
-## [2181] creamy                    vegetal                  
-## [2183] blueberry                 vegetal                  
-## [2185] cherry                    rich                     
-## [2187] bitter dominate           tart                     
-## [2189] fatty                     woodsy                   
-## [2191] hot spice                 cocoa                    
-## [2193] honey                     nut                      
-## [2195] unripened fruit           lemon                    
-## [2197] herbs                     dark berry               
-## [2199] rich                      caramel &quot;rolo&quot;           
-## [2201] heavy roast               mild citrus              
-## [2203] fatty                     nutty                    
-## [2205] bland                     sour                     
-## [2207] bitter                    coffee                   
-## [2209] nibs too soft             roasty                   
-## [2211] sour                      earthy                   
-## [2213] fruity                    tart                     
-## [2215] roasty                    nutmeg                   
-## [2217] cocoa                     dairy                    
-## [2219] sweet                     earthy                   
-## [2221] cocoa                     mild fruit               
-## [2223] strong bitter             peach                    
-## [2225] brownie                   mild bitter              
-## [2227] tart                      cocoa                    
-## [2229] simple                    metallic                 
-## [2231] off notes                 vanilla                  
-## [2233] late cocoa notes          rich                     
-## [2235] pungent                   roasty                   
-## [2237] fruit                     fruit                    
-## [2239] dry                       sweet                    
-## [2241] bitter                    metallic                 
-## [2243] grit                      earthy                   
-## [2245] rich                      fruity                   
-## [2247] nutty                     mild fruit               
-## [2249] strong smoke              fruit                    
-## [2251] spicy                     choco pudding            
-## [2253] fig                       rubber                   
-## [2255] creamy                    molasses                 
-## [2257] tart                      fruit                    
-## [2259] &lt;NA&gt;                      metallic                 
-## [2261] chemical off              woody                    
-## [2263] bourbon                   intense                  
-## [2265] vanilla                   basic cocoa              
-## [2267] sweet                     dirty                    
-## [2269] molasses                  cardamom                 
-## [2271] sweet                     earthy                   
-## [2273] mild sour                 nutty                    
-## [2275] fruit                     heavy roast              
-## [2277] mellow choco              tart                     
-## [2279] over roasted              mild tart                
-## [2281] off notes of rubber       strong bitter            
-## [2283] berry                     honey                    
-## [2285] caramel                   dried fruit              
-## [2287] sweet                     sweet                    
-## [2289] basic cocoa               &lt;NA&gt;                     
-## [2291] herbal                    butterscotch             
-## [2293] fatty                     masculine                
-## [2295] subdued                   salt                     
-## [2297] caramel                   Cadbury egg              
-## [2299] earthy                    burnt caramel            
-## [2301] pepper                    spicy                    
-## [2303] intense blueberry         caramel                  
-## [2305] toast                     nutty                    
-## [2307] fruit                     cloying                  
-## [2309] marshmallow               roasty                   
-## [2311] mild nuts                 earthy                   
-## 502 Levels:  &quot;Andes&quot; mint accessible acidic alkalyzed notes ... yogurt</code></pre>
+<pre class="r"><code>charsByRating &lt;- aggregate(choco$Rating, by=list(characteristics=choco$Characteristics2), FUN=mean)
+charsByRating[order(charsByRating$x),]</code></pre>
+<pre><code>##               characteristics        x
+## 435         strong off flavor 1.000000
+## 186             hint of fruit 1.500000
+## 431           strong chemical 1.500000
+## 484               very bitter 1.625000
+## 126         dominate off note 1.750000
+## 47                    burning 2.000000
+## 83         chocolate base off 2.000000
+## 106                crisp nibs 2.000000
+## 142               flat flavor 2.000000
+## 338           poor aftertaste 2.000000
+## 393               slight plum 2.000000
+## 405                some fruit 2.000000
+## 407                some spice 2.000000
+## 478                 unrefined 2.000000
+## 481        vanilla domintates 2.000000
+## 485                very bland 2.000000
+## 294                     musty 2.083333
+## 198            intense coffee 2.250000
+## 381                      salt 2.333333
+## 231                 medicinal 2.450000
+## 69                  cardboard 2.458333
+## 8                almost burnt 2.500000
+## 10                  ambiguous 2.500000
+## 12                 artificial 2.500000
+## 74                   chemical 2.500000
+## 76          chemical off note 2.500000
+## 103            cough medicine 2.500000
+## 120              dirt/ earthy 2.500000
+## 129                       dry 2.500000
+## 132             earthy ending 2.500000
+## 134          earthy off notes 2.500000
+## 135                  espresso 2.500000
+## 168                      grit 2.500000
+## 202           intense vinegar 2.500000
+## 206          late cocoa notes 2.500000
+## 237              melon floral 2.500000
+## 284              mildly burnt 2.500000
+## 290                     moldy 2.500000
+## 309              off chemical 2.500000
+## 311             off medicinal 2.500000
+## 320                   oranges 2.500000
+## 324               overly tart 2.500000
+## 325             overyly sweet 2.500000
+## 410                sour dairy 2.500000
+## 416                 sour tang 2.500000
+## 430             strong bitter 2.500000
+## 473   uncontrolled bitterness 2.500000
+## 491                very sweet 2.500000
+## 492                   vinegar 2.500000
+## 496                       wet 2.500000
+## 37                      bread 2.625000
+## 55               burnt rubber 2.625000
+## 92                    cloying 2.625000
+## 156                      fuel 2.625000
+## 173                     harsh 2.625000
+## 312                 off notes 2.625000
+## 49                      burnt 2.656250
+## 75               chemical off 2.666667
+## 22                     bitter 2.675000
+## 344                   pungent 2.675000
+## 119                      dirt 2.687500
+## 240                  metallic 2.725000
+## 379                   rubbery 2.725000
+## 5             alkalyzed notes 2.750000
+## 24            bitter dominate 2.750000
+## 25              bitter ending 2.750000
+## 39               bright berry 2.750000
+## 46                     burlap 2.750000
+## 56                 burnt wood 2.750000
+## 59                    buttery 2.750000
+## 64         candy like vanilla 2.750000
+## 67             caramel &quot;rolo&quot; 2.750000
+## 77     chemical or burnt note 2.750000
+## 88             cigarette butt 2.750000
+## 98  coffee notes from roaster 2.750000
+## 112                     dates 2.750000
+## 161                    grainy 2.750000
+## 183           high astringent 2.750000
+## 213                   leather 2.750000
+## 230                     meaty 2.750000
+## 267                 mild mint 2.750000
+## 283             mildly bitter 2.750000
+## 291                      moss 2.750000
+## 292             mostly bitter 2.750000
+## 296               muted spice 2.750000
+## 305                       odd 2.750000
+## 308                       off 2.750000
+## 313       off notes of rubber 2.750000
+## 314                off rubber 2.750000
+## 315                off spicey 2.750000
+## 353                       raw 2.750000
+## 378                    rubber 2.750000
+## 391                 sl. Burnt 2.750000
+## 436              strong smoke 2.750000
+## 438            strong vanilla 2.750000
+## 442         sublte strawberry 2.750000
+## 456                swiss miss 2.750000
+## 471         true to sugar bar 2.750000
+## 472                unbalanced 2.750000
+## 488               very roasty 2.750000
+## 489               very smokey 2.750000
+## 490               very spicey 2.750000
+## 494                      waxy 2.750000
+## 121                     dirty 2.775000
+## 13                      ashey 2.800000
+## 480                   vanilla 2.820513
+## 54                 burnt nuts 2.833333
+## 141                      flat 2.833333
+## 19                      basic 2.875000
+## 71                     chalky 2.875000
+## 130                     earth 2.875000
+## 326                      palm 2.875000
+## 395            slightly burnt 2.875000
+## 65                 candy-like 2.900000
+## 289                  molasses 2.913793
+## 138                 few grits 2.916667
+## 172                     hammy 2.916667
+## 468                 too sweet 2.916667
+## 72                     cheese 2.937500
+## 413                 sour milk 2.937500
+## 408                      sour 2.951220
+## 14                 astringent 2.961538
+## 1                             3.000000
+## 18                 base cocoa 3.000000
+## 28                  black tea 3.000000
+## 31                      bland 3.000000
+## 36                     brandy 3.000000
+## 63                 candy like 3.000000
+## 73                     cheesy 3.000000
+## 80                      chewy 3.000000
+## 85             chocolate milk 3.000000
+## 125          dominant tobacco 3.000000
+## 128          dried sour fruit 3.000000
+## 136                       fat 3.000000
+## 150              fruit medley 3.000000
+## 159                    ginger 3.000000
+## 169                     grits 3.000000
+## 175                       hay 3.000000
+## 193                hot spices 3.000000
+## 197             intense cocoa 3.000000
+## 201             intense smoke 3.000000
+## 203               large grits 3.000000
+## 209      late sour &amp; molasses 3.000000
+## 210           late tart notes 3.000000
+## 215           leathery flavor 3.000000
+## 221                light lime 3.000000
+## 238               melon notes 3.000000
+## 239                   menthol 3.000000
+## 241             metallic edge 3.000000
+## 248      mild choco &amp; leather 3.000000
+## 263                mild lemon 3.000000
+## 265          mild marshmallow 3.000000
+## 266             mild metallic 3.000000
+## 281              mild tobacco 3.000000
+## 282              mild vanilla 3.000000
+## 295                     muted 3.000000
+## 297          muted strawberry 3.000000
+## 299                     nibby 3.000000
+## 307               oddly sweet 3.000000
+## 310                off flavor 3.000000
+## 323              overly sweet 3.000000
+## 328                    pastey 3.000000
+## 331             peanut butter 3.000000
+## 336                      plum 3.000000
+## 366                   roasted 3.000000
+## 369           roasted caramel 3.000000
+## 372           roasted vegetal 3.000000
+## 387              short length 3.000000
+## 389              simple cocoa 3.000000
+## 396             slightly tart 3.000000
+## 398            sligthly bland 3.000000
+## 404                     soapy 3.000000
+## 409               sour banana 3.000000
+## 411               sour ending 3.000000
+## 412                sour fruit 3.000000
+## 429                    strong 3.000000
+## 437               strong sour 3.000000
+## 439               strong wine 3.000000
+## 444              subtle dairy 3.000000
+## 448           sugar dominates 3.000000
+## 449                    sugary 3.000000
+## 451              super spicey 3.000000
+## 465                     toast 3.000000
+## 474                 undefined 3.000000
+## 475             under refined 3.000000
+## 477            unrecognizable 3.000000
+## 483               very acidic 3.000000
+## 487                very nutty 3.000000
+## 493                  watering 3.000000
+## 131                    earthy 3.006667
+## 452                     sweet 3.025000
+## 249               mild citrus 3.062500
+## 68                   cardamom 3.083333
+## 93                     coarse 3.083333
+## 251               mild coffee 3.083333
+## 137                     fatty 3.098039
+## 165                     green 3.100000
+## 401                    smokey 3.111111
+## 257                mild fruit 3.116667
+## 95                 cocoa base 3.125000
+## 162                     grape 3.125000
+## 170                    gritty 3.125000
+## 177               heavy roast 3.125000
+## 185                high roast 3.125000
+## 214                  leathery 3.125000
+## 293                  mushroom 3.125000
+## 322              over roasted 3.125000
+## 339                   powdery 3.125000
+## 355                 red fruit 3.125000
+## 382                     salty 3.125000
+## 414                sour notes 3.125000
+## 463                  tea-like 3.125000
+## 482                   vegetal 3.125000
+## 466                   tobacco 3.132353
+## 457                     tangy 3.136364
+## 459                      tart 3.137931
+## 245               mild bitter 3.138889
+## 383                     sandy 3.144737
+## 194                   intense 3.164062
+## 78                   cherries 3.166667
+## 334                   perfume 3.166667
+## 4                      acidic 3.178571
+## 373                    roasty 3.180769
+## 34                       bold 3.194444
+## 501                     woody 3.196429
+## 228               marshmallow 3.204545
+## 143                    floral 3.205833
+## 219                  licorice 3.214286
+## 26             black licorice 3.225000
+## 2                &quot;Andes&quot; mint 3.250000
+## 9                    alocohol 3.250000
+## 32                blueberries 3.250000
+## 38                bread notes 3.250000
+## 44               brownie like 3.250000
+## 48          burning sensation 3.250000
+## 50         burnt black pepper 3.250000
+## 57                     butter 3.250000
+## 89                    cinamon 3.250000
+## 102         cooling sensation 3.250000
+## 107                   crumbly 3.250000
+## 123           distinct spicey 3.250000
+## 133              earthy green 3.250000
+## 163                    grapes 3.250000
+## 184           high astringnet 3.250000
+## 188             holiday spice 3.250000
+## 191                 hot cocoa 3.250000
+## 196         intense blueberry 3.250000
+## 199            intense floral 3.250000
+## 204                large nibs 3.250000
+## 205     large unground pieces 3.250000
+## 207                late hammy 3.250000
+## 208                 late sour 3.250000
+## 211                  lavendar 3.250000
+## 222              light toffee 3.250000
+## 225                 macadamia 3.250000
+## 227                     maple 3.250000
+## 232      medium roasted cocoa 3.250000
+## 244                mild berry 3.250000
+## 252                mild dairy 3.250000
+## 254                mild fatty 3.250000
+## 256               mild floral 3.250000
+## 259                  mild ham 3.250000
+## 261                mild honey 3.250000
+## 268             mild molasses 3.250000
+## 269                 mild nuts 3.250000
+## 272               mild orange 3.250000
+## 288          moderate acidity 3.250000
+## 300             nibs too soft 3.250000
+## 306          odd rubber notes 3.250000
+## 330                     peach 3.250000
+## 337                 pomegrant 3.250000
+## 350                     rasin 3.250000
+## 365            roaste brownie 3.250000
+## 367            roasted banana 3.250000
+## 385                    savory 3.250000
+## 397               sligt burnt 3.250000
+## 402             smomkey cocoa 3.250000
+## 420                    spicey 3.250000
+## 427              strawberries 3.250000
+## 433             strong floral 3.250000
+## 434           strong molasses 3.250000
+## 440                   subdued 3.250000
+## 445              subtle fruit 3.250000
+## 470            true to origin 3.250000
+## 97                     coffee 3.259615
+## 400                     smoke 3.269231
+## 354                 red berry 3.281250
+## 388                    simple 3.281250
+## 35                    bourbon 3.291667
+## 16                     banana 3.294118
+## 152                    fruity 3.294118
+## 146                  fragrant 3.300000
+## 250                mild cocoa 3.300000
+## 380                       rum 3.300000
+## 96                    coconut 3.312500
+## 285                      mint 3.312500
+## 458                    tannic 3.312500
+## 94                      cocoa 3.315217
+## 304                     nutty 3.319767
+## 20                basic cocoa 3.325000
+## 301                       nut 3.325000
+## 179                    herbal 3.333333
+## 274               mild roasty 3.333333
+## 371              roasted nuts 3.333333
+## 40               bright fruit 3.343750
+## 66                    caramel 3.343750
+## 27               black pepper 3.350000
+## 91                     citrus 3.350000
+## 171                       ham 3.350000
+## 418                     spice 3.350000
+## 42                    brownie 3.357143
+## 148                     fruit 3.358108
+## 127               dried fruit 3.363636
+## 105                    creamy 3.375000
+## 118                   diluted 3.375000
+## 154                fudge-like 3.375000
+## 160                     grain 3.375000
+## 182          high astringency 3.375000
+## 190                     honey 3.375000
+## 195            intense banana 3.375000
+## 233                    mellow 3.375000
+## 280                 mild tart 3.375000
+## 287                     mocha 3.375000
+## 302                    nutmeg 3.375000
+## 419                    spices 3.375000
+## 450                 sunflower 3.375000
+## 421                     spicy 3.377778
+## 164                    grassy 3.387500
+## 216                     lemon 3.400000
+## 428                strawberry 3.409091
+## 104                     cream 3.416667
+## 109                     dairy 3.416667
+## 181              high acidity 3.416667
+## 226                      malt 3.416667
+## 242                      mild 3.416667
+## 360                rich cocoa 3.421875
+## 426                    sticky 3.425000
+## 79                     cherry 3.446429
+## 500                    woodsy 3.450000
+## 21                      berry 3.458333
+## 3                  accessible 3.500000
+## 6                      almond 3.500000
+## 7               almond butter 3.500000
+## 11                      anise 3.500000
+## 17           banana raspberry 3.500000
+## 23          bitter aftertaste 3.500000
+## 30                blackcherry 3.500000
+## 33                  blueberry 3.500000
+## 43             brownie batter 3.500000
+## 53             burnt cinnamon 3.500000
+## 58               butterscotch 3.500000
+## 82                  chocolate 3.500000
+## 86                 chocolatey 3.500000
+## 87                  chocolaty 3.500000
+## 100         controlled bitter 3.500000
+## 101             cooked banana 3.500000
+## 108                   crunchy 3.500000
+## 115                  delicate 3.500000
+## 139                       fig 3.500000
+## 140                 fig notes 3.500000
+## 145          floral-spice mix 3.500000
+## 149             fruit forward 3.500000
+## 155                    fudgey 3.500000
+## 157               full bodied 3.500000
+## 158                   gateway 3.500000
+## 167                green mint 3.500000
+## 174               harsh woody 3.500000
+## 176                  hazelnut 3.500000
+## 180                     herbs 3.500000
+## 187            hints of fruit 3.500000
+## 212                     leafy 3.500000
+## 217        less intense berry 3.500000
+## 218                   licoric 3.500000
+## 220               light color 3.500000
+## 223          lingering coffee 3.500000
+## 229                 masculine 3.500000
+## 234      mellow but flavorful 3.500000
+## 235              mellow choco 3.500000
+## 247                mild choco 3.500000
+## 253          mild dried fruit 3.500000
+## 258          mild fruit &amp; nut 3.500000
+## 262            mild intensity 3.500000
+## 264             mild licorice 3.500000
+## 270                mild nutty 3.500000
+## 273                 mild pear 3.500000
+## 278          mild sweet cocoa 3.500000
+## 279               mild tannic 3.500000
+## 298                mysterious 3.500000
+## 316                     olive 3.500000
+## 317           one dimensional 3.500000
+## 321                oreo shell 3.500000
+## 327                    papaya 3.500000
+## 329                     pasty 3.500000
+## 333                    pepper 3.500000
+## 335                 pistachio 3.500000
+## 340             powerful tang 3.500000
+## 341          prononced orange 3.500000
+## 342                    prunes 3.500000
+## 345             pungent grape 3.500000
+## 346                   rainins 3.500000
+## 357              rich brownie 3.500000
+## 368             roasted cacao 3.500000
+## 374                    Roasty 3.500000
+## 384             sandy texture 3.500000
+## 390         simple cocoa note 3.500000
+## 392              slight hammy 3.500000
+## 394              slight woody 3.500000
+## 406         some roasty notes 3.500000
+## 424       spicy mild molasses 3.500000
+## 425              spicy pepper 3.500000
+## 441        sublte grape notes 3.500000
+## 446   subtle fruit then cocoa 3.500000
+## 447      subtle peanut butter 3.500000
+## 454                sweet edge 3.500000
+## 455              sweet spices 3.500000
+## 462                       tea 3.500000
+## 476                    unique 3.500000
+## 236                     melon 3.519231
+## 356                      rich 3.532258
+## 276                 mild sour 3.550000
+## 99                    complex 3.553571
+## 277                mild spice 3.562500
+## 467                    toffee 3.583333
+## 469                  tropical 3.583333
+## 29                 blackberry 3.600000
+## 275                mild smoke 3.600000
+## 348                   raisins 3.600000
+## 52              burnt caramel 3.625000
+## 61                    candied 3.625000
+## 70                     cashew 3.625000
+## 110                dark berry 3.625000
+## 114                deep cocoa 3.625000
+## 286                     minty 3.625000
+## 318                    orange 3.625000
+## 303                      nuts 3.666667
+## 359                rich choco 3.687500
+## 15                   balanced 3.700000
+## 41                 bright red 3.750000
+## 45                brownie mix 3.750000
+## 60                Cadbury egg 3.750000
+## 62               candy flavor 3.750000
+## 81              choco pudding 3.750000
+## 84        chocolate ice cream 3.750000
+## 111                dark roast 3.750000
+## 113                deep choco 3.750000
+## 122                  distinct 3.750000
+## 144              floral notes 3.750000
+## 147              fresh grapes 3.750000
+## 151               fruit notes 3.750000
+## 153         fruity then nutty 3.750000
+## 166               green fruit 3.750000
+## 178                      hebs 3.750000
+## 192                 hot spice 3.750000
+## 243                mild anise 3.750000
+## 246               mild cherry 3.750000
+## 255              mild flavors 3.750000
+## 260                mild hammy 3.750000
+## 271        mild nutty &amp; woody 3.750000
+## 319             orange citrus 3.750000
+## 332                      pear 3.750000
+## 343                   pudding 3.750000
+## 347                    raisin 3.750000
+## 349                    raisns 3.750000
+## 358        rich burnt caramel 3.750000
+## 361      rich cocoa dominates 3.750000
+## 362                 rich cooa 3.750000
+## 363            rich hot cocoa 3.750000
+## 364                rich mocha 3.750000
+## 375               roasty nibs 3.750000
+## 376                    robust 3.750000
+## 386                     short 3.750000
+## 399                      slow 3.750000
+## 403                    smooth 3.750000
+## 415               sour orange 3.750000
+## 417                       soy 3.750000
+## 422            spicy cinnamon 3.750000
+## 423                spicy edge 3.750000
+## 432     strong distinct spice 3.750000
+## 453               sweet cocoa 3.750000
+## 461            tart red berry 3.750000
+## 464                     thick 3.750000
+## 486               very grassy 3.750000
+## 495            well developed 3.750000
+## 499                     winey 3.750000
+## 352                 raspberry 3.791667
+## 443                    subtle 3.875000
+## 498                      wine 3.875000
+## 51              burnt brownie 4.000000
+## 90                   cinnamon 4.000000
+## 116            delicate cocoa 4.000000
+## 117                     dense 4.000000
+## 124             distinquished 4.000000
+## 189                     homey 4.000000
+## 200            intense pepper 4.000000
+## 224                      long 4.000000
+## 351               raspberries 4.000000
+## 370             roasted cocoa 4.000000
+## 377                   rounded 4.000000
+## 460               tart citrus 4.000000
+## 479           unripened fruit 4.000000
+## 497              wild berries 4.000000
+## 502                    yogurt 4.000000</code></pre>
 
 
 

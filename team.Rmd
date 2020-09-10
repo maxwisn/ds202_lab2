@@ -17,6 +17,7 @@ str(choco)
 How do different characteristics of the chocolate compare? To elaborate, which characteristics tend to be more favorable and which ones are not? Create both numerical and graphical summaries, and explain.
 
 ```{r}
-choco$Characteristics2
+charsByRating <- aggregate(choco$Rating, by=list(characteristics=choco$Characteristics2), FUN=mean)
+charsByRating[order(charsByRating$x),]
 ```
 
