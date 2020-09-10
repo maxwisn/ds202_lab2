@@ -20,4 +20,3 @@ How do different characteristics of the chocolate compare? To elaborate, which c
 charsByRating <- aggregate(choco$Rating, by=list(characteristics=choco$Characteristics2), FUN=mean)
 charsByRating[order(charsByRating$x),]
 ```
-
