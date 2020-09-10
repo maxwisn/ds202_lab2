@@ -1,6 +1,6 @@
 ---
 title: "team.Rmd"
-author: "Max Wisnieski"
+author: "Max Wisnieski, Jonathan Kelly"
 date: "9/9/2020"
 output: html_document
 ---
