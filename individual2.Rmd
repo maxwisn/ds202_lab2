@@ -1,0 +1,51 @@
+---
+title: "individual2"
+author: "Jonathan Kelly"
+date: "9/9/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+choco <- read.csv("https://raw.githubusercontent.com/xdaiISU/ds202materials/master/hwlabs/data/choco.csv") 
+str(choco) 
+```
+
+```{r}
+hist(choco$Rating, xlab='Rating', main='Chocolate Ranking')
+```
+
+```{r}
+boxplot(choco$Rating, ylab='Rating', main='Chocolate Ranking')
+```
+
+How are the ratings distributed? Create both a histogram and a boxplot and describe them. Don’t forget to mention outliers, if there are any.
+
+The ratings are mostly right justified but there a few outliers that ranked very low. There is also a strange hole in the histogram around the 3.1 to 3.2 range.
+
+```{r}
+barplot(table(choco$Date), ylab='Rating', xlab='Year', main='Chocolate Ranking depending on Year')
+```
+
+How does the number of ratings depend on the year? Draw a bar chart of the number of reports.
+
+The rating start fairly low around 60 in 2006 and slowly increases until it reaches a max at around 270 in 2015 and then begins to decrease again with sharp decreases in 2017 and 2020.
+But the sharp decrease in 2020 could be attributed to the fact that they are still getting data for the year.
+
+```{r}
+chocoRating <- choco$Rating
+chocoPercent <- choco$Cocoa_Percent
+plot(chocoRating, chocoPercent)
+points(chocoRating, chocoPercent, col='blue', pch=2)
+cor(chocoRating, chocoPercent)
+```
+
+Do ratings depend on the cacao percentage of a chocolate bar? Create both numerical and graphical summaries, and explain.
+
+There is basically no correlation between cacao percentage and the rating of the chocolate bar, the graph is extremely hard to follow and is very hard to follow.
+The correlation is a -.15 which would be a very weak negative correlation. 
+
+
