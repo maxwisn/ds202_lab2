@@ -9,3 +9,29 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+choco <- read.csv("https://raw.githubusercontent.com/xdaiISU/ds202materials/master/hwlabs/data/choco.csv") 
+str(choco)
+```
+
+```{r}
+hist(choco$Rating, main = "Histogram of Chocolate Ratings", xlab = "Ratings")
+boxplot(choco$Rating, main = "Boxplot of Chocolate Ratings", ylab = "Ratings")
+```
+
+```{r}
+num <- table(choco$Date)
+barplot(num, main = "Number of Ratings Each Year", xlab = "Year", ylab = "Total Ratings")
+```
+
+```{r}
+rating <- choco$Rating
+percent <- choco$Cocoa_Percent
+cor(rating, percent)
+plot(rating, percent)
+```
+
+```{r}
+boxplot(rating~choco$Location)
+boxplot(rating~choco$Ingredients)
+```
