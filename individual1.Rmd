@@ -78,7 +78,7 @@ toptab <- table(top$Ingredients)
 barplot(toptab, main = "Ingredients of Top 25 Chocolates", xlab = "Ingredients", ylab = "Frequency")
 bot <- tail(ingorder, 25)
 bottab <- table(bot$Ingredients)
-barplot(bottab, main = "Ingredients of Top 25 Chocolates", xlab = "Ingredients", ylab = "Frequency")
+barplot(bottab, main = "Ingredients of Bottom 25 Chocolates", xlab = "Ingredients", ylab = "Frequency")
 ingredTop <- ingrating[ingrating$Ingredients == '3- B,S,C',]
 summary(ingredTop)
 ingredTop2 <- ingrating[ingrating$Ingredients == '2- B,S',]
