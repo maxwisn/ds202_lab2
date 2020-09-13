@@ -19,6 +19,7 @@ str(choco)
 One analysis I wanted to look into was if there was any correlation between ingredients of the chocolate and its rating. I wanted to see if there were any ingredients that were more desirable, and if any were less desirable.
 
 ```{r}
+<<<<<<< HEAD
 rating <- choco$Rating
 boxplot(rating~choco$Ingredients, main = "Box Plots of Rating for Ingredients", xlab = "Ingredients", ylab = "Ratings")
 ingrating <- choco[,c('Ingredients','Rating')]
@@ -37,6 +38,10 @@ ingredBottom <- ingrating[ingrating$Ingredients == '5- B,S,C,V,L',]
 summary(ingredBottom)
 ingredBottom2 <- ingrating[ingrating$Ingredients == '3- B,S,L',]
 summary(ingredBottom2)
+=======
+charsByRating <- aggregate(choco$Rating, by=list(characteristics=choco$Characteristics2), FUN=mean)
+charsByRating[order(charsByRating$x),]
+>>>>>>> 170afbd6b503533b01ba3b396d433af22603360b
 ```
 
 For my analysis I first looked at box plots for all of the ingredients, then looked at bar charts for the ingredients in the 25 highest and lowest rated chocolates. I then took some of the ingredients that were common on the top and bottom to do some summary statistics.
