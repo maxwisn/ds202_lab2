@@ -16,13 +16,22 @@ str(choco)
 
 ```{r}
 hist(choco$Rating, main = "Histogram of Chocolate Ratings", xlab = "Ratings")
+```
+
+**Analysis: **Ratings appear to be bimodal and left skewed
+
+```{R}
 boxplot(choco$Rating, main = "Boxplot of Chocolate Ratings", ylab = "Ratings")
 ```
+
+**Analysis: **The average rating appears to be about 3.25, and there are four outliers that are 2 and below
 
 ```{r}
 num <- table(choco$Date)
 barplot(num, main = "Number of Ratings Each Year", xlab = "Year", ylab = "Total Ratings")
 ```
+
+**Analysis: **The number of ratings has increased over the years, with a peak number of ratings in 2015
 
 ```{r}
 rating <- choco$Rating
@@ -31,7 +40,55 @@ cor(rating, percent)
 plot(rating, percent)
 ```
 
+**Analysis: **According the the scatter plot and the correlation function there is a very weak, negative correlation between the cocoa percentage and the rating of the chocolate.
+
 ```{r}
-boxplot(rating~choco$Location)
-boxplot(rating~choco$Ingredients)
+charating <- choco[,c('Characteristics1','Rating')]
+oc <- charating[order(charating[,2], decreasing = TRUE),]
+h <- head(oc, 25)
+htab <- table(h$Characteristics1)
+barplot(htab, main = "Characteristics of Top 25 Chocolates", xlab = "Characteristics", ylab = "Frequency")
+t <- tail(oc, 25)
+ttab <- table(t$Characteristics1)
+barplot(ttab, main = "Characteristics of Bottom 25 Chocolates", xlab = "Characteristics", ylab = "Frequency")
 ```
+
+```{r}
+creamy <- charating[charating$Characteristics1 == 'creamy',]
+acidic <- charating[charating$Characteristics1 == 'acidic',]
+pastey <- charating[charating$Characteristics1 == 'pastey',]
+oily <- charating[charating$Characteristics1 == 'oily',]
+summary(creamy)
+summary(oily)
+summary(acidic)
+summary(pastey)
+```
+After sorting the data frame, I used a bar plot on the top and bottom 25 objects. From here I was able to choose the the characteristics that occurred the most in the two plots to look at their summary statistics.
+
+**Analysis: **In the top 25, Creamy and Oily were the characteristics that occurred the most. Looking that their summary statistics shows that they have average ratings of 3.485 and 3.24 respectively. Then for the bottom 25, two of the most frequent characteristics were acidic and pastey. These had average ratings of 2.722 and 2.25 respectively. These statistics show that creamy is a very desirable characteristic of chocolate.
+
+Ingredients vs Rating: I want to look into the ingredients of the chocolate to see if they have an affect on the rating.
+
+```{r}
+boxplot(rating~choco$Ingredients, main = "Box Plots of Rating for Ingredients", xlab = "Ingredients", ylab = "Ratings")
+ingrating <- choco[,c('Ingredients','Rating')]
+ingorder <- ingrating[order(ingrating[,2], decreasing = TRUE),]
+top <- head(ingorder, 25)
+toptab <- table(top$Ingredients)
+barplot(toptab, main = "Ingredients of Top 25 Chocolates", xlab = "Ingredients", ylab = "Frequency")
+bot <- tail(ingorder, 25)
+bottab <- table(bot$Ingredients)
+barplot(bottab, main = "Ingredients of Bottom 25 Chocolates", xlab = "Ingredients", ylab = "Frequency")
+ingredTop <- ingrating[ingrating$Ingredients == '3- B,S,C',]
+summary(ingredTop)
+ingredTop2 <- ingrating[ingrating$Ingredients == '2- B,S',]
+summary(ingredTop2)
+ingredBottom <- ingrating[ingrating$Ingredients == '5- B,S,C,V,L',]
+summary(ingredBottom)
+ingredBottom2 <- ingrating[ingrating$Ingredients == '3- B,S,L',]
+summary(ingredBottom2)
+```
+
+For my analysis I first looked at box plots for all of the ingredients, then looked at bar charts for the ingredients in the 25 highest and lowest rated chocolates. I then took some of the ingredients that were common on the top and bottom to do some summary statistics.
+
+**Analysis: **From the box plots you can see that there isn't a whole lot of deviation in ratings based on the ingredients. Next, looking at the bar charts it can be seen that '3-B,S,C' is very common in the top 25 rated chocolates, while '5-B,S,C,V,L' is very common in the bottom 25. Finally, looking at the summary statistics we can see that '3-B,S,C' had an average rating of 3.275 and a max rating of 4.0, so it is very desirable to have in chocolate. However, '3-B,S,L' has an average rating of 2.688 and a maximum of 3.25, so it is a poor choice for making chocolate.

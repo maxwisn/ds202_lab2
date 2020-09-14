@@ -14,9 +14,31 @@ choco <- read.csv("https://raw.githubusercontent.com/xdaiISU/ds202materials/mast
 str(choco) 
 ```
 
-How do different characteristics of the chocolate compare? To elaborate, which characteristics tend to be more favorable and which ones are not? Create both numerical and graphical summaries, and explain.
+## First Analysis
+
+One analysis I wanted to look into was if there was any correlation between ingredients of the chocolate and its rating. I wanted to see if there were any ingredients that were more desirable, and if any were less desirable.
 
 ```{r}
-charsByRating <- aggregate(choco$Rating, by=list(characteristics=choco$Characteristics2), FUN=mean)
-charsByRating[order(charsByRating$x),]
+rating <- choco$Rating
+boxplot(rating~choco$Ingredients, main = "Box Plots of Rating for Ingredients", xlab = "Ingredients", ylab = "Ratings")
+ingrating <- choco[,c('Ingredients','Rating')]
+ingorder <- ingrating[order(ingrating[,2], decreasing = TRUE),]
+top <- head(ingorder, 25)
+toptab <- table(top$Ingredients)
+barplot(toptab, main = "Ingredients of Top 25 Chocolates", xlab = "Ingredients", ylab = "Frequency")
+bot <- tail(ingorder, 25)
+bottab <- table(bot$Ingredients)
+barplot(bottab, main = "Ingredients of Bottom 25 Chocolates", xlab = "Ingredients", ylab = "Frequency")
+ingredTop <- ingrating[ingrating$Ingredients == '3- B,S,C',]
+summary(ingredTop)
+ingredTop2 <- ingrating[ingrating$Ingredients == '2- B,S',]
+summary(ingredTop2)
+ingredBottom <- ingrating[ingrating$Ingredients == '5- B,S,C,V,L',]
+summary(ingredBottom)
+ingredBottom2 <- ingrating[ingrating$Ingredients == '3- B,S,L',]
+summary(ingredBottom2)
 ```
+
+For my analysis I first looked at box plots for all of the ingredients, then looked at bar charts for the ingredients in the 25 highest and lowest rated chocolates. I then took some of the ingredients that were common on the top and bottom to do some summary statistics.
+
+**Analysis: **From the box plots you can see that there isn't a whole lot of deviation in ratings based on the ingredients. Next, looking at the bar charts it can be seen that '3-B,S,C' is very common in the top 25 rated chocolates, while '5-B,S,C,V,L' is very common in the bottom 25. Finally, looking at the summary statistics we can see that '3-B,S,C' had an average rating of 3.275 and a max rating of 4.0, so it is very desirable to have in chocolate. However, '3-B,S,L' has an average rating of 2.688 and a maximum of 3.25, so it is a poor choice for making chocolate.
