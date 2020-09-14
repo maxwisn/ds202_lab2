@@ -42,3 +42,35 @@ summary(ingredBottom2)
 For my analysis I first looked at box plots for all of the ingredients, then looked at bar charts for the ingredients in the 25 highest and lowest rated chocolates. I then took some of the ingredients that were common on the top and bottom to do some summary statistics.
 
 **Analysis: **From the box plots you can see that there isn't a whole lot of deviation in ratings based on the ingredients. Next, looking at the bar charts it can be seen that '3-B,S,C' is very common in the top 25 rated chocolates, while '5-B,S,C,V,L' is very common in the bottom 25. Finally, looking at the summary statistics we can see that '3-B,S,C' had an average rating of 3.275 and a max rating of 4.0, so it is very desirable to have in chocolate. However, '3-B,S,L' has an average rating of 2.688 and a maximum of 3.25, so it is a poor choice for making chocolate.
+
+
+## Analysis Two
+
+The analysis I looked at was the difference the country of origin of the bean makes on percentage of cocoa that is in the chocolate, and what the geographical location of the top and lowest groups of countries are. 
+
+```{r}
+cocoaOfBeanOriginCountry <- data.frame(choco$Bean_Origin, choco$Cocoa_Percent)
+cocoaOfBeanOriginCountry <- aggregate(choco$Cocoa_Percent, by=list(beanOrigin=choco$Bean_Origin), FUN=mean)
+cocoaOfBeanOriginCountry <- cocoaOfBeanOriginCountry[order(cocoaOfBeanOriginCountry$x),]
+cocoaOfBeanOriginCountry
+```
+
+```{r}
+attach(cocoaOfBeanOriginCountry)
+barplot(main = "Cocoa Percent",  x)
+```
+
+```{r}
+lowest15 <- head(cocoaOfBeanOriginCountry, n=15)
+attach(lowest15)
+barplot(main = "Lowest 15 Countries", xlab = "Average Percent of Cocoa", x, names.arg = beanOrigin,  horiz = TRUE, cex.names=0.7, las=1, space=0.1)
+```
+
+```{r}
+best15 <- tail(cocoaOfBeanOriginCountry, n=15)
+attach(best15)
+barplot(main = "Highest 15 Countries", xlab = "Average Percent of Cocoa", x, names.arg = beanOrigin,  horiz = TRUE, cex.names=0.7, las=1, space=0.1)
+```
+
+The beans with the highest percent of Cocoa are produced in countries on the equator mainly in Africa and South America but also a few islands, and the lowest percentage ones were produced in countries generally farther away from the equator. The first graph shows most of the beans have roughly the same percentage of cocoa, around 68-75 percent, But with Martinique and Samoa being notable outliers at 42% and 82% respectfully.
+

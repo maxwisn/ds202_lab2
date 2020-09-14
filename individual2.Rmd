@@ -63,3 +63,32 @@ allCharactristicsByRating <- allCharactristicsByRating[order(allCharactristicsBy
 allCharactristicsByRating
 ```
 
+```{r}
+attach(allCharactristicsByRating)
+barplot(meanRating)
+```
+
+```{r}
+worst30 <- allCharactristicsByRating[1:30,]
+attach(worst30)
+barplot(horiz = TRUE, meanRating, names.arg = characteristics, cex.names=0.5, las=1, space=0.1, xlim=c(0,2.5))
+```
+```{r}
+best30 <- tail(allCharactristicsByRating, n=30)
+attach(best30)
+barplot(horiz = TRUE, meanRating, names.arg = characteristics, cex.names=0.5, las=1, space=0.1 )
+```
+
+
+How do different characteristics of the chocolate compare? To elaborate, which characteristics tend to be more favorable and which ones are not? Create both numerical and graphical summaries, and explain.
+
+I combined all 4 characteristic lists and found the average rating for when ever each characteristic was included for a chocolate bar. I then looked at the top and bottom 30 characteristics with the worst ratings.
+
+"this is not chocolate" and "strong off flavor" were the only 2 characteristics that average score was a 1.
+There were also other characteristics that understandably scored very low, such as "wtf", "unpleasant", "unfixable" and "sandpaper".
+Interestingly, "very nutty" is also in the bottom 30 so the judges of these chocolates must not like nuts.
+Finally there is a sharp increase in scores going from 1 to almost 2.5 fairly quickly.
+
+As for the top 30 chocolates, the top 25 all averaged at the top score of a 4. The smallest average rating of the top 30 is a 3.75 making the range only .25, which is much smaller than the range of the worst 30 chocolates. "tangerine", "gentle roast", "delicate fruit", "clove" and "wild berries" were the top 5 characteristics.
+
+Looking the bar graph of all the chocolates average ratings you can see the sharp increase in scores from 0 to 2.5 and the flat lines every .25 points, as the chocolate from the csv file was all ranked in quarter points. 
