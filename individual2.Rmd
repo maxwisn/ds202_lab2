@@ -49,3 +49,17 @@ There is basically no correlation between cacao percentage and the rating of the
 The correlation is a -.15 which would be a very weak negative correlation. 
 
 
+
+```{r}
+charsByRating <- aggregate(choco$Rating, by=list(characteristics=choco$Characteristics1), FUN=mean)
+charsByRating2 <- aggregate(choco$Rating, by=list(characteristics=choco$Characteristics2), FUN=mean)
+charsByRating3 <- aggregate(choco$Rating, by=list(characteristics=choco$Characteristics3), FUN=mean)
+charsByRating4 <- aggregate(choco$Rating, by=list(characteristics=choco$Characteristics4), FUN=mean)
+allCharactristicsByRating <- Reduce(function(x, y, w, z) merge(x = x, y = y, w = w, z = z, by = "characteristics", all = TRUE), list(charsByRating, charsByRating2,charsByRating3, charsByRating4))
+colnames(allCharactristicsByRating) <- c("characteristics", "rating1", "rating2", "rating3", "rating4")
+allCharactristicsByRating$meanRating <- rowMeans(subset(allCharactristicsByRating, select= c(rating1,rating2,rating3,rating4)), na.rm=TRUE)
+allCharactristicsByRating <- allCharactristicsByRating[,-c(2:5)]
+allCharactristicsByRating <- allCharactristicsByRating[order(allCharactristicsByRating$meanRating),]
+allCharactristicsByRating
+```
+
