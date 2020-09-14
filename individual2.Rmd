@@ -65,18 +65,18 @@ allCharactristicsByRating
 
 ```{r}
 attach(allCharactristicsByRating)
-barplot(meanRating)
+barplot(main = "Average Ratings",  meanRating)
 ```
 
 ```{r}
 worst30 <- allCharactristicsByRating[1:30,]
 attach(worst30)
-barplot(horiz = TRUE, meanRating, names.arg = characteristics, cex.names=0.5, las=1, space=0.1, xlim=c(0,2.5))
+barplot(main = "Worst 30 Characteristics", xlab = "Average Rating", horiz = TRUE, meanRating, names.arg = characteristics, cex.names=0.5, las=1, space=0.1, xlim=c(0,2.5))
 ```
 ```{r}
 best30 <- tail(allCharactristicsByRating, n=30)
 attach(best30)
-barplot(horiz = TRUE, meanRating, names.arg = characteristics, cex.names=0.5, las=1, space=0.1 )
+barplot(main = "Best 30 Characteristics", xlab = "Average Rating", horiz = TRUE, meanRating, names.arg = characteristics, cex.names=0.5, las=1, space=0.1 )
 ```
 
 
